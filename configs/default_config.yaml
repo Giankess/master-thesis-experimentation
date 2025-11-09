@@ -1,0 +1,36 @@
+# Default configuration for Financial Shock Detector
+
+data_collection:
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+  delay: 1.0
+
+nlp_processing:
+  model_name: "yiyanghkust/finbert-tone"
+  max_length: 512
+  batch_size: 8
+  pooling: "cls"
+
+dimensionality_reduction:
+  method: "pca"
+  variance_threshold: 0.95
+  standardize: true
+
+clustering:
+  method: "gmm"
+  n_components: 3
+  covariance_type: "full"
+  random_state: 42
+  max_iter: 100
+
+classification:
+  model_type: "xgboost"
+  test_size: 0.2
+  random_state: 42
+  n_estimators: 100
+  max_depth: 6
+  learning_rate: 0.1
+
+output:
+  save_models: true
+  output_dir: "output"
+  save_plots: true
